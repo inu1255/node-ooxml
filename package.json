@@ -1,0 +1,21 @@
+{
+  "name": "node-ooxml",
+  "version": "1.0.0",
+  "description": "ooxml tools for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ooxml",
+    "node"
+  ],
+  "author": "inu1255",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "md5": "^2.2.1",
+    "request": "^2.82.0"
+  }
+}

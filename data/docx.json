@@ -1,0 +1,336 @@
+{
+    "document": {
+        "url": "http://www.officeopenxml.com/WPdocument.php",
+        "desc": "The <w:document> element is the root element of the main content part.The <w:document> element can contain the elements below.<w:document> has a single attribute:",
+        "attrs": {
+            "conformance": {
+                "desc": "Specifies the conformance class to which the document conforms. Possible values are:"
+            }
+        },
+        "elems": {
+            "background": {
+                "desc": "Specifies the background for every page of the document. The background can be either an DrawingML object or a sold color. If it is a DrawingML \n    object, then the background element contains a drawing element. If a solid color \n    is used, then background is an empty element, with the color specified in the following attributes.",
+                "attrs": {
+                    "color": {
+                        "desc": "Specifies the color. Possible values are either hex-encoded RGB values (in RRGGBB format) or auto. E.g.,\n                <w:background w:color=\"2C34FF\"/> "
+                    },
+                    "themeColor": {
+                        "desc": "Specifies the base theme color (which is specified in the Theme part). E.g.,\n                <w:background w:themeColor=\"accent5\"/> "
+                    },
+                    "themeShade": {
+                        "desc": "Specifies the shade value applied to the theme color (in hex encoding of values 0-255). E.g.,\n                <w:background w:themeColor=\"accent2\" w:themeShade=\"BF\"/> "
+                    },
+                    "themeTint": {
+                        "desc": "Specifies the tint value applied to the theme color (in hex encoding of values 0-255). E.g.,\n                <w:background w:themeColor=\"accent2\" w:themeTint=\"99\"/> "
+                    }
+                }
+            },
+            "body": {
+                "desc": "Specifies the contents of the body of the document. It has no attributes. It can contain a number of elements, most related to tracking \n    changes and adding customer XML. The core elements are listed below.",
+                "elems": {
+                    "p": {
+                        "desc": "The paragraph is the main block-level container for content within an ooxml document. (Tables can also contain content at the same level as a paragraph.) \n    The paragraph is specified with <w:p> element. The paragraph can contain rich formatting properties for the\n    paragraph (contained within a <w:pPr>). The text within the paragraph is further contained within one or more runs (<w:r>).  Paragraphs may also contain bookmarks, hyperlinks, fields, comments, etc.The <w:p> element can contain a number of elements, mostly related to tracking revisions and adding custom XML.  The core elements are shown below.",
+                        "url": "http://www.officeopenxml.com/WPparagraph.php",
+                        "elems": {
+                            "bookmarkStart": {
+                                "desc": "Links are specified with the <w:hyperlink> element. Links to locations external to the document and links to locations within the document are handled differently based upon the presence or not of the r:id attribute. If the link is to an external target, then the r:id attribute is specified, which is the ID of a relationship stored in the relationship part (document.xml.rels). That relationship has a value of External for the TargetMode attribute. A specific location within the target for the link can be specified with the docLocation attribute.  See attributes below.The r:id=\"rId4\" references the following relationship within the relationships part for the document (document.xml.rels).An internal link is specified by including the anchor attribute with the value of a bookmark within the document. The most commonly used attributes are:",
+                                "url": "http://www.officeopenxml.com/WPhyperlink.php",
+                                "attrs": {
+                                    "id": {
+                                        "desc": "Specifies a unique identifier for the bookmark. The value must match the value of the corresponding id for the bookmarkStart element."
+                                    },
+                                    "name": {
+                                        "desc": "Specifies the bookmark name. The value of this attribute should match the value of the anchor attribute for the hyperlink element."
+                                    },
+                                    "colFirst": {
+                                        "desc": "This attribute is used to define a bookmark that is within a table. If it appears, so must the colLast attribute. It is possible for a bookmark within a table to only cover cells within a certain column and row range by specifying the first row that is part of the bookmark, the first column of each row that is part of the bookmark, the last column that is part of the bookmark, and the last row that is part of the bookmark. The first row is specified by placing the beginning bookmark (bookmarkStart) in the first cell of the row. The last row is specified by placing the ending bookmark (bookmarkEnd) at the end of the row.  The first column is specified with this attribute. And the last column is specified with the colLast, shown below. The attribute is a zero-based index of the columns, so the first column is represented by w:colFirst=\"0\".For example, a table of three rows and three columns might have a bookmark applied to the first two cells in the first two rows. The bookmark indicated by blue shading above would be specified with the following:"
+                                    },
+                                    "colLast": {
+                                        "desc": "Specifies the zero-based index of the last column in the row which is part of the bookmark.  If this attribute appears, so must the colFirst attribute. See the colFirst discussion, above."
+                                    }
+                                }
+                            },
+                            "bookmarkEnd": {
+                                "desc": "Specifies the end of a bookmark within a document.  See Bookmarks."
+                            },
+                            "r": {
+                                "desc": "Line breaks, carriage returns, tabs, special characters and other special content may appear as elements within\n    text runs (<w:r> </w:r>) rather than within text elements (<t> </t>). ",
+                                "url": "http://www.officeopenxml.com/WPtextSpecialContent.php",
+                                "elems": {
+                                    "br": {
+                                        "desc": "Specifies a break.  See Text - Special Content."
+                                    },
+                                    "cr": {
+                                        "desc": "Specifies a carriage return.  See Text - Special Content."
+                                    },
+                                    "drawing": {},
+                                    "noBreakHyphen": {
+                                        "desc": "Specifies a non-breaking hyphen character.  See Text - Special Content."
+                                    },
+                                    "rPr": {
+                                        "desc": "Character styles apply to the contents of one or more runs of text. They have a type attribute value of character. They are referenced by the <w:rStyle> element within a run's properties element (<w:rPr>).  The above character style is then applied in content as shown below.There is only one element.Below is a style definition for text that might appear in an external stylesheet.The style is then applied as shown below.",
+                                        "url": "http://www.officeopenxml.com/WPstyleCharStyles.php",
+                                        "elems": {
+                                            "rPr": {
+                                                "desc": "Run formatting is specified with elements within the <w:rPr> element.  Some of the most commonly used formatting elements are below.  Other text formatting, such as spacing, shading, and borders, is covered in separate pages.",
+                                                "url": "http://www.officeopenxml.com/WPtextFormatting.php",
+                                                "elems": {
+                                                    "b": {},
+                                                    "i": {},
+                                                    "caps": {},
+                                                    "color": {
+                                                        "desc": "Possible attributes are themeColor, themeShade,\n        themeTint, and val.The val attribute specifies the color as a hex value in RRGGBB format, or auto may be specified to allow the consuming\n        software to determine the color."
+                                                    },
+                                                    "dstrike": {},
+                                                    "emboss": {
+                                                        "desc": " Note: The above example specifies emboss,\n        but also sets the color to white: <w:emboss/><w:color w:val=\"FFFFFF\"/>.\n        That seems to be necessary else the result looks like imprint."
+                                                    },
+                                                    "imprint": {},
+                                                    "outline": {
+                                                        "desc": "Specifies that the content should be displayed as if it had an outline.  A one-pixel border is drawn around the inside and outside borders of each character.\n    <outline w:val=\"true\"/>.\n    This is a toggle property."
+                                                    },
+                                                    "rStyle": {},
+                                                    "shadow": {},
+                                                    "smallCaps": {},
+                                                    "strike": {},
+                                                    "sz": {
+                                                        "desc": "The single attribute val specifies a measurement in half-points (1/144 of an inch).  "
+                                                    },
+                                                    "u": {
+                                                        "desc": "The most common attributes are below (the theme-related attributed are omitted):"
+                                                    },
+                                                    "vanish": {},
+                                                    "vertAlign": {
+                                                        "desc": "The single attribute is val. Permitted values are: "
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "softHyphen": {
+                                        "desc": "Specifies a soft hyphen character.  See Text - Special Content."
+                                    },
+                                    "sym": {
+                                        "desc": "Symbols are specified with the w:sym element within the w:r element.\n    A symbol is a special character that does not use any of the run fonts specified in rFonts\n        or in the style hierarchy. The character is determined by pulling the hexadecimal value specified in the char attribute from the\n        font specified in the font attribute.Symbols may be referenced in HTML as character entities using short names (e.g., &copy;).  See the W3 recommendation regarding character references.\n    Symbols may also be referenced\n    with numeric character references in the form &#number (decimal form) or\n    &#xnumber (hexadecimal form). See the W3 recommendation.\n    Only Unicode characters are officially supported in HTML and only those should be used, as not all \nbrowsers will have fonts such as Wingdings.  However, fonts may be specified in CSS and numeric character references made to the desired character in the desired font.",
+                                        "url": "http://www.officeopenxml.com/http://www.w3.org/TR/html4/sgml/entities.php",
+                                        "attrs": {
+                                            "char": {},
+                                            "font": {}
+                                        }
+                                    },
+                                    "t": {
+                                        "desc": "Specifies literal text which will be displayed in the run. Most all text within a document is contained within t elements, except text within a field code. There is one possible attribute (xml:space) within the XML namespace that can be used to specify how space within the t element is to be handled.  Possible values are preserve and default. If whitespace within a run needs to be preserved, it is important that this attribute be set to preserve.  See the XML 1.0 specification at § 2.10."
+                                    },
+                                    "tab": {
+                                        "desc": "Specifies a tab character.  See Text - Special Content."
+                                    }
+                                }
+                            },
+                            "pPr": {
+                                "desc": "Paragraph properties are specified in <pPr>.  Each property is a child element of <pPr>. When appearing within a paragraph (w:p) element rather than within a style element (w:style), they are direct formatting and are applied after style/numbering/table properties. \n    Compare with paragraph styles.The most commonly used properties are shown below:",
+                                "url": "http://www.officeopenxml.com/WPparagraphProperties.php",
+                                "elems": {
+                                    "framePr": {},
+                                    "ind": {},
+                                    "jc": {},
+                                    "keepLines": {},
+                                    "keepNext": {},
+                                    "numPr": {
+                                        "desc": "Numbering or leveling refers to ways of labeling individual paragraphs with numbers, letters, and/or symbols, such as might be used in an outline format or with a simple group of bulleted items.  Numbering in OOXML wordprocessing is implemented by first defining a set of rules for how a particular number scheme is to work.  For example, a traditional outline format might look something like this:I. This is the first levelA. This is the second level1. This is the third level.These set of rules which will be used in the document is defined using the <w:abstractNum> element within the root numbering element of the numbering part (numbering.xml).  This set of definitions is \"abstract,\" however, and is not directly referenced in the document.  Instead, instances of the abstract numbering definition are created using <w:num> elements, also within the numbering part.  Those instances may follow the abstract definition exactly or may define overrides or exceptions to the abstract definition.  Finally, those instances are referenced in the document content.  Below is an abstract numbering definition, followed by an instance of that definition.  Both appear within the numbering part.The above XML defines a leveling scheme with just one level (w:lvl w:ilvl=\"0\").  It also creates an instance numbered 1 (w:num w:NumId=\"1\") referencing the abstractNum without any changes or exceptions.  Within the document content this instance may be referenced for a given paragraph, such as shown in the example below.Note that the numbering reference within the document content in the sample above contains a direct reference to the level to be applied because the <w:numPr> contains both the reference to the numbering definition (numId) and a reference to the level (ilvl). \n    See Paragraph Properties for more on <w:numPr>. The other possible way to reference a level in content is through the referenced paragraph style.  That is, in the <w:abstractNum> the appropriate subsidiary level (lvl) could contain a pStyle with a value of ListParagraph.  In that case, the content contains only a reference to the numbering definition instance (numId), but it also references the paragraph style.  The same style will be found in the numbering definition referenced and that level will be used for the paragraph.The Numbering Definitions part has a root element <w:numbering>. See ECMA-376, 3rd Edition (June, 2011), Fundamentals and Markup Language Reference § 11.3.11.  The part contains the definition of each set of numbering rules used in the document, even if a particular level of a given set of rules is not actually used in the document. Note that a package can contain no more than two Numbering Definitions parts--one for the main document and one for the glossary.The child elements of <w:numbering> are below (omitting numIdMacAtLeanup used in tracking changes).",
+                                        "url": "http://www.officeopenxml.com/WPnumbering.php",
+                                        "elems": {
+                                            "numId": {},
+                                            "ilvl": {
+                                                "desc": "Specifies the numbering level of the numbering definition to use for the paragraph.  It corresponds to the <w:lvl w:ilvl=\"0\"> element within <w:abstractNum> element of the numbering part.Note: When numbering is done with direct formatting (i.e., the pPr is not within a style), then both the numbering definition instance and level within the instance are specified by including both a numId and an ilvl.  When numbering is done as part of a style, only the numId is specified.  The level of the numbering definition to be applied is indicated in the numbering definition with a reference to the paragraph style. See the example below."
+                                            }
+                                        }
+                                    },
+                                    "outlineLvl": {},
+                                    "pBdr": {},
+                                    "pStyle": {},
+                                    "rPr": {},
+                                    "sectPr": {},
+                                    "shd": {},
+                                    "spacing": {},
+                                    "tabs": {},
+                                    "textAlignment": {}
+                                }
+                            },
+                            "fldSimple": {},
+                            "hyperlink": {}
+                        }
+                    },
+                    "sectPr": {
+                        "desc": "OOXML does not define pages--only paragraphs and text. However, it does enable the storing of certain information important to page composition, \n    such as page size, page orientation, borders and margins.  It does this through the use of the section. A section is a grouping of paragraphs that have a\n    specific set of properties used to define the pages on which the text will appear. A section's properties are stored in a sectPr element.  For all sections except the last section, the sectPr \n    element is stored as a child element of the last paragraph in the section. For the last section, the sectPr is stored as a child element of \nthe body element. The following sample shows two sections--the first in portrait orientation and the second in landscape.",
+                        "url": "http://www.officeopenxml.com/WPsection.php",
+                        "elems": {
+                            "cols": {
+                                "desc": "A section can be divided into columns with the <w:cols> element. Note: If the columns are of equal width, then the columns are specified with\nattributes of <w:cols>.  If the columns are not equal, then each column is specified as a child <w:col>\nelement, as shown below.",
+                                "url": "http://www.officeopenxml.com/WPsectionCols.php",
+                                "attrs": {
+                                    "equalWidth": {},
+                                    "num": {
+                                        "desc": " Note: Microsoft Word 2007 seems to require the attribute be set even when the columns are\n        not of equal width."
+                                    },
+                                    "sep": {},
+                                    "space": {}
+                                },
+                                "elems": {
+                                    "col": {}
+                                }
+                            },
+                            "footerReference": {
+                                "desc": "The footer for a section is specified with the <w:footerReference> element.\n    The footer is referenced via the id attribute. Below is a sample reference to a footer for a section.These references point to relationships in document.xml.rels, which in turn point to the footers via the target element.For each section there can be up to three types of footers: first page footer, odd page footer (default), and even page footer.  The type is specified via the\n    type attribute. If any of the above three types of footers is omitted, then the following rules apply.",
+                                "url": "http://www.officeopenxml.com/WPsectionFooterReference.php",
+                                "attrs": {
+                                    "id": {
+                                        "desc": "Specifies the relationship ID to the appropriate footer part."
+                                    },
+                                    "type": {
+                                        "desc": "Specifies the type of footer.  Possible values are:"
+                                    }
+                                }
+                            },
+                            "formProt": {
+                                "desc": "Specifies that the content of the section cannot be edited by a user except for text contained in a form field. Note that enforcement is determined by the\n    documentProtection element within the settings part."
+                            },
+                            "headerReference": {
+                                "desc": "The header for a section is specified with the <w:headerReference> element.  \n    The header is referenced via the id attribute. Below is a sample reference to a header for a section.These references point to relationships in the document.xml.rels, which in turn point to the headers:For each section there can be up to three types of headers: first page header, odd page header, and even page header.  The type is specified via the\n    type attribute. If any of the above three types of headers is omitted, then the following rules apply.",
+                                "url": "http://www.officeopenxml.com/WPsectionHeaderReference.php",
+                                "attrs": {
+                                    "id": {
+                                        "desc": "Specifies the relationship ID to the appropriate header part."
+                                    },
+                                    "type": {
+                                        "desc": "Specifies the type of header.  Possible values are:"
+                                    }
+                                }
+                            },
+                            "lnNumType": {
+                                "desc": "Line numbers are specified for each column of text in a section with the <w:lnNumType> element.",
+                                "url": "http://www.officeopenxml.com/WPsectionLineNumering.php",
+                                "attrs": {
+                                    "countBy": {},
+                                    "distance": {},
+                                    "restart": {},
+                                    "start": {}
+                                }
+                            },
+                            "paperSrc": {
+                                "desc": "Specifies printer-specific settings for the printer trays to be used for the first and later pages.  E.g.,\n        <w:paperSrc w:first=\"1\" w:other=\"1\"/>. There are two attributes:"
+                            },
+                            "pgBorders": {
+                                "desc": "Borders for each page of a section are defined with the <w:pgBorders> element.\n    Child elements of this element specify the kinds of border--left, right,\n    bottom, and top.The most commonly used attributes are below (theme-related attributes are omitted):",
+                                "url": "http://www.officeopenxml.com/WPsectionBorders.php",
+                                "attrs": {
+                                    "display": {
+                                        "desc": "Specifies on which pages to display the border. Possible values are:"
+                                    },
+                                    "offsetFrom": {
+                                        "desc": "Specifies how the relative positioning of the borders should be calculated.  Possible values are:"
+                                    },
+                                    "zOrder": {
+                                        "desc": "Specifies whether the page border is positioned above or below intersecting text and objects. Possible values are:"
+                                    },
+                                    "color": {},
+                                    "id": {
+                                        "desc": "Used to define a customer border image.  It specifies the relationship ID for the relationship that contains the border image.\n    The image is contained within a separate part of the package. E.g., <w:bottom w:val=\"custom\" r:id=\"rIdCustomBottomBorder\" . . ./>. The\n    relationship with ID of rIdCustomBottomBorder must contain the image.  Note that the relationship targeted by the attribute must be of type\n    http://purl.oclc.org/ooxml/officeDocument/relationships/image or the document will be non-conformant.Note: Earlier versions of the standard did not support this attribute."
+                                    },
+                                    "shadow": {},
+                                    "space": {},
+                                    "sz": {},
+                                    "val": {
+                                        "desc": "Specifies the style of the border.  Page borders can be line borders or art borders.  Possible line border values are:For the possible art borders, see the specification at ECMA-376, 3rd Edition (June, 2011), Fundamentals and Markup Language Reference § 17.18.2."
+                                    }
+                                },
+                                "elems": {
+                                    "top": {},
+                                    "bottom": {},
+                                    "left": {},
+                                    "right": {}
+                                }
+                            },
+                            "pgMar": {
+                                "desc": "The margins for each page of a section are defined with the <w:pgMar> element.",
+                                "url": "http://www.officeopenxml.com/WPsectionPgMar.php",
+                                "attrs": {
+                                    "bottom": {
+                                        "desc": "Specifies the distance (in twips or twentieths of a point) between the bottom of the text margin and the bottom of the page. The text is placed at the greater of the value\n    of this attribute and the extent of the footer text.  A negative value indicates that the content should be measured from the bottom of the page regardless of the footer,\n    and so will overlap the footer. For example, <w:pgMar w:header=\"-720\" w:bottom=\"1440\" .../> means that the\n    footer must start one inch from the bottom of the page and the main document text must start a half inch from the bottom of the page. In this case, the text and footer overlap\n    since bottom is negative."
+                                    },
+                                    "footer": {
+                                        "desc": "Specifies the distance (in twips or twentieths of a point) from the bottom edge of the page to the bottom edge of the footer. "
+                                    },
+                                    "gutter": {
+                                        "desc": "Specifies the page gutter (the extra space added to the margin, typically to account for binding). "
+                                    },
+                                    "header": {
+                                        "desc": "Specifies the distance (in twips or twentieths of a point) from the top edge of the page to the top edge of the header. "
+                                    },
+                                    "left": {
+                                        "desc": "Specifies the distance (in twips or twentieths of a point) from the left edge of the page to the left edge of the text. "
+                                    },
+                                    "right": {
+                                        "desc": "Specifies the distance (in twips or twentieths of a point) from the right edge of the page to the right edge of the text. "
+                                    },
+                                    "top": {
+                                        "desc": "Specifies the distance (in twips or twentieths of a point) from the top edge of the page to the top edge of the text. The text is placed at the greater of the value of\n    this attribute and the extent of the header text. A negative value indicates that the contents of the document text should be measured from the top of the page regardless\n    of the header, and will overlap the header text."
+                                    }
+                                }
+                            },
+                            "pgNumType": {
+                                "desc": "The page numbers for pages in the section are defined with the <w:pgNumType> element.",
+                                "url": "http://www.officeopenxml.com/WPSectionPgNumType.php",
+                                "attrs": {
+                                    "chapSep": {
+                                        "desc": "Specifies the separator character to be used between the chapter and page number if a chapter style has been set.  Possible values are:"
+                                    },
+                                    "chapStyle": {
+                                        "desc": "Specifies the one-based index of the heading style applied to chapter titles. The nearest heading of the style is located and the numbering information is\n        extracted for the page number. For example, a chapStyle value of 1 (Heading 1 style) means that\n    the numbering value of the nearest Heading 1 style is used for the chapter value in the page number."
+                                    },
+                                    "fmt": {
+                                        "desc": "Specifies the number format to be used for page numbers in the section.  The most commonly used values are:"
+                                    },
+                                    "start": {
+                                        "desc": "Specifies the page number that appears on the first page of the section.  If the value is omitted, numbering continues from the highest page number in the previous section. "
+                                    }
+                                }
+                            },
+                            "pgSz": {
+                                "desc": "Specifies the properties (size and orientation) for all pages in the section. E.g., <w:pgSz w:h=\"12240\" w:w=\"15840\" w:orient=\"landscape\"/>.\n        The important attributes are below.",
+                                "attrs": {
+                                    "h": {
+                                        "desc": "Specifies the page height in twentieths of a point."
+                                    },
+                                    "w": {
+                                        "desc": "Specifies the page width in twentieths of a point."
+                                    },
+                                    "orient": {
+                                        "desc": "Specifies the page orientation. Possible values are landscape and portrait."
+                                    }
+                                }
+                            },
+                            "titlePg": {
+                                "desc": "Specifies whether the section should have a different header and footer for its first page. If the element is set to true\n        (e.g., <w:titlePg/>), then the section will use a first page header;\n        if it is false (e.g., <w:titlePg w:val=\"false\"/>) (the default value), then the first page uses the odd page header.\n        If the element is set to true but the first page header type is omitted, then a blank header is created.  "
+                            },
+                            "type": {
+                                "desc": "Specifies the section type. It determines how the contents of the section will be placed relative to the previous section. E.g.,\n        <w:type w:val=\"nextPage\"/> There are five different types, corresponding to\n        the five possible values of the val attribute."
+                            },
+                            "vAlign": {
+                                "desc": "Specifies the vertical alignment for text in the section, relative to the top and bottom margins. E.g., <w:vAlign w:val=\"center\"/>.\n    There is a single attribute val with the following possible values:Below is an example of <w:vAlign w:val=\"both\"/>."
+                            }
+                        }
+                    },
+                    "tbl": {
+                        "desc": "A table consists of rows and cells and is structured much like an HTML table.  It is defined with the <w:tbl> element. Note: When two adjacent tables having the same style are present together without any intervening <w:p> elements, the tables are treated as a single table.The <w:tbl> element can contain a whole host of elements, mostly related to tracking revisions and adding custom XML.  The core elements are shown below.",
+                        "url": "http://www.officeopenxml.com/WPtable.php",
+                        "elems": {
+                            "tblGrid": {},
+                            "tblPr": {},
+                            "tr": {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
